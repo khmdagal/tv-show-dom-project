@@ -9,12 +9,25 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <header>
+      <label for="input_search">Search</label>
+      <input type="search" id="input_search" />
+      <select id="select_id">
+        <option value="">--- Choose Episode ----></option>
+        <option id="select_all">SELECT ALL 🎬 EPISODES</option>
+      </select>
+      <span id="count_Episodes">Your Search Result is : </span>
+      <span id="total_Episodes"></span>
+    </header>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+    <main id="root"></main>
 
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+    <footer>
+      <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
+      <script src="episodes.js"></script>
+
+      <!-- Loads YOUR javascript code -->
+      <script src="script.js"></script>
+    </footer>
   </body>
 </html>

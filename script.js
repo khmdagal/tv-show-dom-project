@@ -1,48 +1,59 @@
-//You can edit ALL of the code here
+/* TODO LIST
+1 select all episoded
+2 if select and searche, should 
+3 counter
+4 rights@ for ....
+*/
 
-function setup() {
-  const allEpisodes = getAllEpisodes();
-  makePageForEpisodes(allEpisodes);
+const container = document.querySelector("#root");
+const allEpisodes = getAllEpisodes();
+const countEpisodes = document.querySelector("#count_Episodes");
+const totalEpisodes = document.querySelector("#total_Episodes");
+
+totalEpisodes.innerText = ` / ${allEpisodes.length} Episodes`;
+
+// think this one
+const selectAllEpisodesOption = document.querySelector("#select_all");
+
+const searchInput = document.querySelector("#input_search");
+const select = document.querySelector("#select_id");
+
+searchInput.addEventListener("input", (e) => {
+  const value = e.target.value.toLowerCase();
+
+  const filteredEpisodes = allEpisodes.filter(
+    (episode) =>
+      episode.name.toLowerCase().includes(value) ||
+      episode.summary.toLowerCase().includes(value)
+  );
+
+  container.innerHTML = "";
+  countEpisodes.innerText += `${filteredEpisodes.length} `;
+  showEpisodes(filteredEpisodes);
+});
+
+select.addEventListener("change", () => {
+  const value = select.value.slice(9);
+
+  const filteredEpisodes = allEpisodes.filter(
+    (episode) => episode.name === value
+  );
+
+  container.innerHTML = "";
+  countEpisodes.innerText += `${filteredEpisodes.length} `;
+  showEpisodes(filteredEpisodes);
+});
+
+function showEpisodes(episodes) {
+  episodes.forEach((episode) => {
+    const add = createElements(episode);
+    container.appendChild(add);
+  });
 }
 
-function htmlElements() {
-  //Create elements
-  const span = document.createElement("span");
-  const h2 = document.createElement("h2");
-  const titleSection = document.createElement("section");
-  const image = document.createElement("img");
-  const p = document.createElement("p");
-  const article = document.createElement("article");
+showEpisodes(allEpisodes);
 
-  // setting attributes
-  span.setAttribute("class", "title span_class");
-  h2.setAttribute("class", "title h2_Id");
-  titleSection.setAttribute("class", "title title_section_class");
-  image.setAttribute("class", "img_class");
-  p.setAttribute("class", "p_class");
-  article.setAttribute("class", "article_class");
-
-  //appending elements togather
-  h2.appendChild(span);
-
-  titleSection.appendChild(h2);
-  article.appendChild(titleSection);
-  article.appendChild(image);
-  article.appendChild(p);
-
-  document.querySelector("#root").appendChild(article);
-}
-
-// const allSeasons = getAllEpisodes().entries();
-// for (let season of allSeasons) {
-  
-// }
-
-
-
-
-function makePageForEpisodes() {
-getAllEpisodes().forEach((episode) => {
+function createElements(episode) {
   const span_for_season = document.createElement("span");
   const span_for_numbers = document.createElement("span");
   const h2 = document.createElement("h2");
@@ -50,38 +61,44 @@ getAllEpisodes().forEach((episode) => {
   const image = document.createElement("img");
   const p = document.createElement("p");
   const article = document.createElement("article");
+  const option = document.createElement("option");
 
   // setting attributes
-  span_for_season.setAttribute("class", "title span_for_season_class");
+  span_for_season.setAttribute("class", "spans span_for_season_class");
+
   h2.setAttribute("class", "title h2_Id");
   titleSection.setAttribute("class", "title title_section_class");
   image.setAttribute("class", "img_class");
   p.setAttribute("class", "p_class");
   article.setAttribute("class", "article_class");
 
-
- 
- 
-
   // Adding values
-  h2.textContent = episode.name;
-  span_for_season.textContent = episode.season.toString().padStart(3,"S0")
-  span_for_numbers.textContent = episode.number.toString().padStart(3, "E0");
+
+  const dropDownOptions = `S${
+    episode.season < 10 ? "0" + episode.season : episode.season
+  }E${episode.number < 10 ? "0" + episode.number : episode.number} - ${
+    episode.name
+  }`;
+
+  const titles = `${episode.name} - S${
+    episode.season < 10 ? "0" + episode.season : episode.season
+  }E${episode.number < 10 ? "0" + episode.number : episode.number}`;
+
+  option.value = span_for_season.textContent = dropDownOptions;
+  option.innerText = span_for_season.textContent = dropDownOptions;
+
+  h2.textContent = titles;
+  //span_for_season.textContent = shortCuForSeaAndEpis;
+
   image.src = episode.image.medium;
   p.innerHTML = episode.summary;
 
-
-  
   //appending elements togather
-  h2.appendChild(span_for_season);
-  h2.appendChild(span_for_numbers);
   titleSection.appendChild(h2);
   article.appendChild(titleSection);
   article.appendChild(image);
   article.appendChild(p);
+  select.appendChild(option);
 
-  document.querySelector("#root").appendChild(article);
-});
-  
+  return article;
 }
-makePageForEpisodes();
