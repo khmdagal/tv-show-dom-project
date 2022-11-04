@@ -28,7 +28,7 @@ searchInput.addEventListener("input", (e) => {
   );
 
   container.innerHTML = "";
-  countEpisodes.innerText += `${filteredEpisodes.length} `;
+  countEpisodes.innerText = `${filteredEpisodes.length} `;
   showEpisodes(filteredEpisodes);
 });
 
@@ -40,7 +40,7 @@ select.addEventListener("change", () => {
   );
 
   container.innerHTML = "";
-  countEpisodes.innerText += `${filteredEpisodes.length} `;
+  countEpisodes.innerText = `${filteredEpisodes.length} `;
   showEpisodes(filteredEpisodes);
 });
 
@@ -55,7 +55,6 @@ showEpisodes(allEpisodes);
 
 function createElements(episode) {
   const span_for_season = document.createElement("span");
-  const span_for_numbers = document.createElement("span");
   const h2 = document.createElement("h2");
   const titleSection = document.createElement("section");
   const image = document.createElement("img");
