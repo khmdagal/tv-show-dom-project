@@ -38,13 +38,9 @@ main {
   flex-direction: column;
   border: solid;
   align-items: center;
-  background: repeating-linear-gradient(
-    60deg,
-    red 50px,
-    orange 100px,
-    yellow 150px,
-    rgb(77, 33, 121) 200px
-  );
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 0.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 120.71%);
 }
 
 .article_class {
