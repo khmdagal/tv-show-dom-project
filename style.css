@@ -38,13 +38,17 @@ main {
   flex-direction: column;
   border: solid;
   align-items: center;
-  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 0.71%),
-            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 120.71%);
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 0.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 120.71%);
 }
 
 .article_class {
-  width: 250px;
+  width: 25vw;
   height: 85%;
   padding: 20px;
   margin: 6px;
@@ -55,8 +59,15 @@ main {
   background: conic-gradient(at 0% 15%, red 10%, yellow 30%, #1e90ff 50%);
   transition: transform 0.5s;
 }
+
+.p_class {
+  grid-area: p;
+  font-size: 1.2vw;
+  margin-left: 5px;
+  width: 100%;
+}
 .article_class:hover {
-  transform: scale(1.2); /* IE 9 */
+  /*transform: scale(2); IE 9*/
   transform: scale(1.2); /* Safari 3-8 */
 }
 
@@ -73,7 +84,7 @@ footer {
 }
 
 /* Medium devices eg: tablets */
-@media only screen and (min-width: 426px) and (max-width: 768px) {
+@media only screen and (min-width: 426px) and (max-width: 700px) {
   #search_section {
     display: flex;
     flex-direction: row;
@@ -81,11 +92,14 @@ footer {
   }
 
   .article_class {
-    width: 90%;
+    width: 70vw;
+    height: 30vw;
     display: grid;
     grid:
       "s s s s"
       "i i p p";
+    align-content: center;
+    align-items: center;
   }
   h2 {
     font-size: 2vw;
@@ -95,13 +109,10 @@ footer {
   img {
     grid-area: i;
   }
-  .p_class {
-    grid-area: p;
-  }
 }
 
 /* ----- large devices -----*/
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 701px) {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
