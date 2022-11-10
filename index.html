@@ -12,17 +12,25 @@
     <header>
       <h1 id="h1">TV Show Project</h1>
       <section id="search_section">
+        <!-- Shows list dropdown -->
+        <select id="shows_list_id"></select>
+
+        <!-- input search  -->
         <label for="input_search">Search</label>
         <input type="search" id="input_search" />
+
+        <!-- Episodes dropdown  -->
         <select id="select_id">
           <option value="">--- Choose Episode ----></option>
-          <option id="select_all">SELECT ALL 🎬 EPISODES</option>
+          <option id="select_all" value="selectAll">
+            SELECT ALL 🎬 EPISODES
+          </option>
         </select>
       </section>
 
       <p id="number_of_episodes">
-        Your Search Result is :
-        <span id="count_Episodes">73</span>
+        Selected Episode :
+        <span id="count_Episodes">0</span>
         <span id="total_Episodes"></span>
       </p>
     </header>
@@ -33,9 +41,8 @@
       <p id="rights">
         All rights reseved @ <a href="https://www.tvmaze.com/"> TVMAZE</a>
       </p>
-
-      <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-      <script src="episodes.js"></script>
+      <!-- Loads shows -->
+      <script src="./shows.js"></script>
 
       <!-- Loads YOUR javascript code -->
       <script src="script.js"></script>
