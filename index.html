@@ -3,19 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | My Name (My GitHub username)</title>
+    <title>TV Show Project | Khadar M Dagal (My GitHub khmdagal)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
-    <div id="root">
-    </div>
+    <header>
+      <h1 id="h1">TV Show Project</h1>
+      <section id="search_section">
+        <!-- Shows list dropdown -->
+        <select id="shows_list_id"></select>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+        <!-- input search  -->
+        <label for="input_search">Search</label>
+        <input type="search" id="input_search" />
 
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+        <!-- Episodes dropdown  -->
+        <select id="select_id">
+          <option value="">--- Choose Episode ----></option>
+          <option id="select_all" value="selectAll">
+            SELECT ALL 🎬 EPISODES
+          </option>
+        </select>
+      </section>
+
+      <p id="number_of_episodes">
+        Selected Episode :
+        <span id="count_Episodes">0</span>
+        <span id="total_Episodes"></span>
+      </p>
+    </header>
+
+    <main id="root"></main>
+
+    <footer>
+      <p id="rights">
+        All rights reseved @ <a href="https://www.tvmaze.com/"> TVMAZE</a>
+      </p>
+      <!-- Loads shows -->
+      <script src="./shows.js"></script>
+
+      <!-- Loads YOUR javascript code -->
+      <script src="script.js"></script>
+    </footer>
   </body>
 </html>

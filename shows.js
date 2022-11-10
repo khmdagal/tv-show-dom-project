@@ -61,21 +61,14 @@ function getAllShows() {
       "name": "Horatio Hornblower",
       "type": "Scripted",
       "language": "English",
-      "genres": [
-        "Drama",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Drama","Action","Adventure"],
       "status": "Ended",
       "runtime": 120,
       "premiered": "1998-10-07",
       "officialSite": "https://itvstudios.com/programmes/hornblower",
       "schedule": {
         "time": "20:00",
-        "days": [
-          "Monday",
-          "Sunday"
-        ]
+        "days": ["Monday","Sunday"]
       },
       "rating": {
         "average": 9.8
